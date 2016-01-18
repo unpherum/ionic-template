@@ -10,7 +10,8 @@ angular.module('starter', [
   'starter.homeController',
   'starter.aboutController',
   'starter.siteMenuController',
-  'starter.services'
+
+  'starter.homeService'
 ])
 
 .run(function($ionicPlatform) {
@@ -29,7 +30,12 @@ angular.module('starter', [
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(['$ionicConfigProvider', '$stateProvider', '$urlRouterProvider', function($ionicConfigProvider, $stateProvider, $urlRouterProvider) {
+
+  //standard properties config for any platform
+  $ionicConfigProvider.tabs.position('bottom');
+  $ionicConfigProvider.backButton.text('BACK').icon('ion-chevron-left');
+  $ionicConfigProvider.platform.android.navBar.alignTitle('center');
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -70,4 +76,4 @@ angular.module('starter', [
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
 
-});
+}]);
