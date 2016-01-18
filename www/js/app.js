@@ -9,6 +9,7 @@ angular.module('starter', [
   'ionic',
   'starter.homeController',
   'starter.aboutController',
+  'starter.siteMenuController',
   'starter.services'
 ])
 
